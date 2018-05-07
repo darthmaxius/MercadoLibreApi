@@ -1,15 +1,15 @@
 import cors from '../cors'
 import items from '../filter/items-filter'
 import express from 'express'
+import formater from '../filter/items-formatter'
 
 const Items = () => {
   const appRouter = express.Router()
 
   appRouter.get('/items', cors, (req, res) => {
     const meliApi = items(req.query.q)
-      .then((reponse) => reponse.json())
       .then((jsonData) => {
-        res.send(jsonData)
+        res.send(formater(jsonData.data))
       })
       .catch((e) => {
         console.log(e)
