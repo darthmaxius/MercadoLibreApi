@@ -10,7 +10,7 @@ const ItemsFormatter = (meliData) => {
   const categories = meliData.filters.find((item) => item.id === 'category')
   if (typeof categories !== 'undefined' && categories.values.length > 0) {
     categories.values[0].path_from_root.map((item) => {
-      newData.categories.push(item.name)
+      newData.categories.push(item)
     })
   }
 
@@ -22,7 +22,8 @@ const ItemsFormatter = (meliData) => {
       price: item.price,
       picture: item.thumbnail,
       condition: item.condition,
-      free_shipping: item.shipping.free_shipping
+      free_shipping: item.shipping.free_shipping,
+      city: item.seller_address.state.name
     }
 
     newData.items.push(newItem)

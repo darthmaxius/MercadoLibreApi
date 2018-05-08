@@ -1,8 +1,6 @@
 import config from '../config'
 
-const DetailFormatter = (details, description) => {
-  console.log(details)
-
+const DetailFormatter = (details, description, categoryData) => {
   let newData = {
     author: config.author,
     item: {
@@ -17,7 +15,8 @@ const DetailFormatter = (details, description) => {
       condition: details.condition,
       free_shipping: details.shipping.free_shipping,
       sold_quantity: details.sold_quantity,
-      description: description.plain_text
+      description: description.plain_text,
+      category: categoryData.path_from_root
     }
   }
 
