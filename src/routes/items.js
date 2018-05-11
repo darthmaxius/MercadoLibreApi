@@ -1,4 +1,3 @@
-import cors from '../cors'
 import items from '../filter/items-filter'
 import { detailFilter as detail, descriptionFilter as description, categoryFilter as category } from '../filter/detail-filter'
 import express from 'express'
@@ -16,7 +15,7 @@ const getItemWithCategories = (res, results) => {
 const Items = () => {
   const appRouter = express.Router()
 
-  appRouter.get('/items', cors, (req, res) => {
+  appRouter.get('/items', (req, res) => {
     const meliApi = items(req.query.q)
       .then((jsonData) => {
         res.send(formaterItem(jsonData.data))
@@ -26,7 +25,7 @@ const Items = () => {
       })
   })
 
-  appRouter.get('/items/:id', cors, (req, res) => {
+  appRouter.get('/items/:id', (req, res) => {
     let request = [
       detail(req.params.id),
       description(req.params.id)
