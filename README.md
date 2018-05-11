@@ -3,10 +3,10 @@ Esta API contiene el listado de Resultados y el detalle de cada producto. Funcio
 
 ## ¿Cómo levanto la aplicación?
 - docker build -t meli-api .
-- docker run -d -p 3000:3000 meli-api npm start
+- docker run -d -p 3000:3000 meli-api yarn start
 
 ## ¿Cuáles son los endpoints?
-- /api/items?q=​ :query
+- /api/items?q=​:query
 - /api/items/​:id
 
 
