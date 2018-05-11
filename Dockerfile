@@ -4,7 +4,7 @@ RUN mkdir -p /backend
 WORKDIR /backend
 COPY ./ .
 
-RUN rm -r ./node_modules
+RUN rm -r ./node_modules || true
 RUN yarn install && yarn upgrade
 CMD yarn start
 
